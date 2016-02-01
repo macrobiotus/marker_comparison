@@ -1,0 +1,73 @@
+## collate biom files for Austrlian soils:
+## ---------------------------------------
+# generated from Illumina control data via QIIME
+# as documented in shell script
+
+# copy 18S files to upload source folder
+cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150304_18S_soil/*.biom \
+   /Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_18S/
+# copy COI files to upload source folder
+cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150304_COI_soil/*.biom \
+   /Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_COI/
+   
+## collate biom files from mock community
+## ---------------------------------------
+# generated from Illumina control data via QIIME
+# as documented in shell script
+# extract for sequencing sourced from from Clarke LJ, Soubrier J, Weyrich LS, Cooper A. Environmental metabarcodes 
+# for insects: in silico PCR reveals potential for taxonomic bias.
+# Mol Ecol Resour. 2014;14: 1160–1170.
+
+# copy 18S files to upload source folder
+cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150304_18S_abundance/150304_0.001_discarded/150113_18_OTUs_clust97_tassgn99_md_assigned_only_no_contaminants_invertebrates_AUST_0.001_MOCK.biom \
+   /Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/1_AU_MOCK_biom_files_18S
+# copy COI files to upload source folder
+cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150304_COI_abundance/150304_0.001_discarded/150121_COI_OTUs_clust97_tassgn80_md_assigned_only_invertebrates_AUST_0.001_MOCK.biom \
+   /Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/1_AU_MOCK_biom_files_COI
+
+## collate biom files for Antarctic soils:
+## ---------------------------------------
+# generated from Illumina control data via QIIME
+# as documented in shell script
+
+# copy 18S files to upload source folder
+cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150304_18S_abundance/150304_0.001_discarded/150113_18_OTUs_clust97_tassgn99_md_assigned_only_no_contaminants_invertebrates_ANT_0.001.biom \
+   /Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_18S
+# copy COI files to upload source folder
+cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150304_COI_abundance/150304_0.001_discarded/150121_COI_OTUs_clust97_tassgn80_md_assigned_only_invertebrates_ANT_0.001.biom \
+   /Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_COI
+
+## collate morphological data files for Antarctic soils:
+## -----------------------------------------------------
+# generated via Excel and Biom packages
+# as documented in shell script
+cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150307_Antarctic_Spearman/150307_AVC_OTU_table.biom \
+   /Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/3_ANT_MORPH
+   
+## get sequence data for biom files -- IN PROGRESS
+## -----------------------------------------------
+
+# biom files are here
+
+"/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_18S"
+"/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_COI"
+"/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_18S"
+"/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_COI"
+
+# rep sets are here
+grep ">" -c  /mnt/paul_folder/140730_18S_data/150112_18S_OTU_rep_sets/150113_rep_set_097.fasta
+grep ">" -c  /mnt/paul_folder/140730_18S_data/150112_18S_OTU_rep_sets/150113_rep_set_099.fasta
+grep ">" /mnt/paul_folder/140719_COI_data/140925_rep_set/140825_rep_set_097.fasta | wc -l # 1641
+grep ">" /mnt/paul_folder/140719_COI_data/140925_rep_set/140825_rep_set_099.fasta | wc -l # 2957
+grep ">" /mnt/paul_folder/140719_COI_data/140925_rep_set/140925_rep_set_100.fasta | wc -l # 15105
+
+# mapping files are here
+mf="/mnt/paul_folder/140730_18S_data/150108_18S_mf_w_md/150108_18S_MF.txt"
+mf="/mnt/paul_folder/140719_COI_data/150108_COI_mf_w_md/150108_COI_MF.txt"
+
+
+# load qiime
+
+# create directory
+
+# extract sequences from repsets using qiime
