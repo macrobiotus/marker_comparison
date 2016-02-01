@@ -47,27 +47,45 @@ cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150307_Antarcti
 ## get sequence data for biom files -- IN PROGRESS
 ## -----------------------------------------------
 
-# biom files are here
+## get relavant files to upload location
 
-"/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_18S"
-"/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_COI"
-"/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_18S"
-"/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_COI"
+# copy rep. sets to upload location
+cp -v \
+/Volumes/Seagate\ Slim\ Drive/1_completed_materials_mbp/150710_backup/150710_starcluster/140730_18S_data/150112_18S_OTU_rep_sets/150113_rep_set_097.fasta \
+/Volumes/Seagate\ Slim\ Drive/1_completed_materials_mbp/150710_backup/150710_starcluster/140730_18S_data/150112_18S_OTU_rep_sets/150113_rep_set_099.fasta \
+/Volumes/Seagate\ Slim\ Drive/1_completed_materials_mbp/150710_backup/150710_starcluster/140719_COI_data/140925_rep_set/140825_rep_set_097.fasta \
+/Volumes/Seagate\ Slim\ Drive/1_completed_materials_mbp/150710_backup/150710_starcluster/140719_COI_data/140925_rep_set/140825_rep_set_099.fasta \
+/Volumes/Seagate\ Slim\ Drive/1_completed_materials_mbp/150710_backup/150710_starcluster/140719_COI_data/140925_rep_set/140925_rep_set_100.fasta \
+/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/4_rep_sets/
 
-# rep sets are here
-grep ">" -c  /mnt/paul_folder/140730_18S_data/150112_18S_OTU_rep_sets/150113_rep_set_097.fasta
-grep ">" -c  /mnt/paul_folder/140730_18S_data/150112_18S_OTU_rep_sets/150113_rep_set_099.fasta
-grep ">" /mnt/paul_folder/140719_COI_data/140925_rep_set/140825_rep_set_097.fasta | wc -l # 1641
-grep ">" /mnt/paul_folder/140719_COI_data/140925_rep_set/140825_rep_set_099.fasta | wc -l # 2957
-grep ">" /mnt/paul_folder/140719_COI_data/140925_rep_set/140925_rep_set_100.fasta | wc -l # 15105
+# copy mapping files upload location
+cp -v \
+/Volumes/Seagate\ Slim\ Drive/1_completed_materials_mbp/150710_backup/150710_starcluster/140730_18S_data/150108_18S_mf_w_md/150108_18S_MF.txt \
+/Volumes/Seagate\ Slim\ Drive/1_completed_materials_mbp/150710_backup/150710_starcluster/140719_COI_data/150108_COI_mf_w_md/150108_COI_MF.txt \
+/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/5_mapping_files/
 
-# mapping files are here
-mf="/mnt/paul_folder/140730_18S_data/150108_18S_mf_w_md/150108_18S_MF.txt"
-mf="/mnt/paul_folder/140719_COI_data/150108_COI_mf_w_md/150108_COI_MF.txt"
+## define file paths
 
+# define list with biom files
+dir[1]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_18S"
+dir[2]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_COI"
+dir[3]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_18S"
+dir[4]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_COI"
 
-# load qiime
+# define list with fasta files
+fna[1]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/4_rep_sets/140825_rep_set_097.fasta"
+fna[2]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/4_rep_sets/140825_rep_set_099.fasta"
+fna[3]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/4_rep_sets/140925_rep_set_100.fasta"
+fna[4]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/4_rep_sets/150113_rep_set_097.fasta"
+fna[5]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/4_rep_sets/150113_rep_set_099.fasta"
 
-# create directory
+# define list with mapping files
+mf[1]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/5_mapping_files/150108_18S_MF.txt"
+mf[2]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/5_mapping_files/150108_COI_MF.txt"
+
+# load Qiime
 
 # extract sequences from repsets using qiime
+
+# strip metadata from mapping files and biom files - this is unpublished data and should not be on GitHub
+
