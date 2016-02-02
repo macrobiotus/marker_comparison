@@ -1,0 +1,20 @@
+Num samples: 4
+Num observations: 8
+Total count: 1484
+Table density (fraction of non-zero values): 1.000
+Table md5 (unzipped): 6768d4d03c45dbe1110188bc2efe902f
+
+Counts/sample summary:
+ Min: 229.0
+ Max: 532.0
+ Median: 361.500
+ Mean: 371.000
+ Std. dev.: 138.537
+ Sample Metadata Categories: ATP_med_RLU; orientation; SardiID; BarcodeSequence; LatDEC; xrd_pyr_amp_gar_fam; xrd_chlor; Location; ReversePrimer; csbp_pHCaCl2; csbp_amm; FwdPrimerID; errors; csbp_tex; abio_cloud_1_8; geo_aspect_d; abio_soil_temp_C; csbp_color; LatiDMS; XtrContent; xrd_dolomite; LongDMS; XtrOri; geo_slope_d; xrd_kaolin_chlor; xrd_calc; abio_wind_dir; csbp_phosphorus; abio_air_temp_C; TmplHash; xrd_quartz; geo_longitude_d; visual_mite_count; LibContent; LinkerPrimerSequence; abio_wind_Beau; geo_elevation_m; csbp_potassium; visual_moss_area; csbp_conductivity; Description; csbp_gravel_perc; xrd_titanite; csbp_oc_perc; LongDEC; geo_latitude_d; csbp_code; xrd_feldspar; xrd_micas; Loci; ter_moist; csbp_pHH2O; xrd_file; csbp_sulphur; csbp_nitrate; ter_salts
+ Observation Metadata Categories: taxonomy
+
+Counts/sample detail:
+ COI.2.11.H.soilcntrl: 229.0
+ COI.2.10.H.soilcntrl: 238.0
+ COI.1.11.H.soilcntrl: 485.0
+ COI.1.10.H.soilcntrl: 532.0

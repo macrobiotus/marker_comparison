@@ -44,8 +44,8 @@ cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150304_COI_abun
 cp /Users/paul/Documents/140911_c3_analysis/150302_Invertebrates/150307_Antarctic_Spearman/150307_AVC_OTU_table.biom \
    /Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/3_ANT_MORPH
    
-## get sequence data for biom files -- IN PROGRESS
-## -----------------------------------------------
+## get sequence data for biom files
+## --------------------------------
 
 ## get relavant files to upload location
 
@@ -64,13 +64,13 @@ cp -v \
 /Volumes/Seagate\ Slim\ Drive/1_completed_materials_mbp/150710_backup/150710_starcluster/140719_COI_data/150108_COI_mf_w_md/150108_COI_MF.txt \
 /Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/5_mapping_files/
 
-## define file paths
+## define file paths - in case further coding should be necessary
 
 # define list with biom files
-dir[1]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_18S"
-dir[2]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_COI"
-dir[3]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_18S"
-dir[4]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_COI"
+list[1]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_18S/*.biom"
+list[2]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/0_AU_SOIL_biom_files_COI/*.biom"
+list[3]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_18S/*.biom"
+list[4]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/2_ANT_SOIL_biom_COI/*.biom"
 
 # define list with fasta files
 fna[1]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/4_rep_sets/140825_rep_set_097.fasta"
@@ -84,8 +84,21 @@ mf[1]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_subm
 mf[2]="/Users/paul/Documents/14_Ph_D_thesis_C3_Invertebrates_Markers/160120_submission/zenodo/5_mapping_files/150108_COI_MF.txt"
 
 # load Qiime
+macqiime
 
-# extract sequences from repsets using qiime
+# create summary tables from .biom with seq. data files in case needed later
+for ((j = 1; j <= "${#list[@]}"; j++)); do # looping over lists
+    for file in ${list[j]}; do [[ -e $file ]] || continue # looping over files, and checking presence of files
+      biom summarize-table -i  "$file" -o "${file%.*}.txt" # write txt file containing the metadata fields
+    done
+done
 
-# strip metadata from mapping files and biom files - this is unpublished data and should not be on GitHub
+# strip metadata from mapping files - this is unpublished data and should not
+# be on GitHub - done in Excel
 
+# compress fasta files using pigz
+for ((j = 1; j <= "${#fna[@]}"; j++)); do # looping over lists
+    for file in ${fna[j]}; do [[ -e $file ]] || continue # looping over files, and checking presence of files
+      pigz "$file"
+    done
+done
