@@ -1,8 +1,5 @@
-## 16.01.21 - Data analysis using R
+## 16.02.09 - Data analysis using R
 ## ================================
-
-# 160121 - spotted an error in this table (or subsequent table):
-#  - re-run analysis, rebuild figures. (two days)
 
 # Paul Czechowski, paul.czechowski(at)adelaide(dot)edu(dot)au
 
